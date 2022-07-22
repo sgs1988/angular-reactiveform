@@ -1,0 +1,55 @@
+<div class="page-details">
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Company Name</th>
+                <th>Where Did You Know About Us</th>
+                <th>Select Tariff Type</th>
+                <th>Select Payment Type</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+            <tbody formArrayName="quantities">
+            <tr *ngFor="let quantity of quantities().controls; let i=index" [formGroupName]="i">
+                <td>{{i+1}}</td>
+                <td><input type="text" id="Cname" formControlName="companyName" class="form-control border-0" aria-label="Company Name"></td>
+                <td><select id="Question" formControlName="whereAbout" class="form-select border-0">
+                    <option selected>--Select--</option>
+                    <option>Google</option>
+                    <option>Twitter</option>
+                    <option>Facebook</option>
+                    <option>Linkedin</option>
+                </select></td>
+                <td><select id="Question" formControlName="selectTariff" class="form-select border-0">
+                        <option selected>--Select--</option>
+                        <option>As Direct</option>
+                        <option>Point to Point</option>
+                    </select></td>
+                <td><select id="Question" formControlName="selectPayment" class="form-select border-0">
+                        <option selected>--Select--</option>
+                        <option>Cash</option>
+                        <option>Prepaid</option>
+                        <option>Postpaid</option>
+                    </select></td>
+                <td class="text-center">
+                    <button *ngIf="quantities().controls.length > 1" (click)="removeQuantity(i)" class="btn btn-danger btn-delete"><i class="bi bi-trash3"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row ">
+        <div class="text-end">
+            <button (click)="addQuantity()" class="add-btn">+</button>
+        </div>
+        
+    </div>
+    
+</form>
+<div><button class="btn btn-primary">Submit</button></div>
+
+<br/>
+<p>{{this.productForm.value | json}}</p>
+
+</div>

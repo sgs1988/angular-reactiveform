@@ -1,0 +1,84 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+  <!-- <div class="header">
+    <div class="title">
+      <span *ngIf="isExpanded">Logist Menu</span>
+    </div>
+    <div class="toggle" (click)="handleSidebarToggle()">
+      <span class="chevron"></span>
+    </div>
+  </div> -->
+  <div class="content">
+    <div class="link">
+      <div class="content" [routerLink]="['/summary']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/contract.png">
+        </div>
+        <div class="title">Summary</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/clearbooking']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/booking.png">
+        </div>
+        <div class="title">Cleared Booking</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/clients']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/client.png">
+        </div>
+        <div class="title">Clients</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/drivers']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/driver.png">
+        </div>
+        <div class="title">Drivers</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/crm']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/partnership.png">
+        </div>
+        <div class="title">CRM</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/finance']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/money-bag.png">
+        </div>
+        <div class="title">Finance</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/tfl']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/limousine.png">
+        </div>
+        <div class="title">TFL</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/newbookings']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/car.png">
+        </div>
+        <div class="title">New Bookings</div>
+      </div>
+    </div>
+    <div class="link">
+      <div class="content" [routerLink]="['/taxrates']" [routerLinkActive]="'active'">
+        <div class="icon">
+          <img class="img" src="../assets/image/car.png">
+        </div>
+        <div class="title">Tax Rates</div>
+      </div>
+    </div>
+  </div>
+</div>

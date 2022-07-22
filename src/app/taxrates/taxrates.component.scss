@@ -1,0 +1,40 @@
+.taxrates-header-section {
+    height: 100px;
+    padding-top: 20px;
+    background-image: url('../../assets/image/bg.png');
+    color: #fff;
+    padding-left: 40px;
+}
+
+.taxrates-content-section {
+    padding: 30px 30px 30px 40px;
+}
+.how-work {
+    font-weight: bold;
+    font-size: 20px;
+    text-decoration: underline;
+    text-underline-offset: -1px;
+    margin-bottom: 20px;
+}
+.custom-range-data { width: 57px; }
+.how-work-details { margin-top: 20px;}
+.how-work-details-section { font-size: 11px; }
+.how-work-label-section { height: 20px; }
+.how-work-label-validation { 
+    font-size: 10px;
+    color: #ff0000;
+    margin-top: -5px;
+    padding-left: 2px;
+}
+.range-left { margin-right: 10px;}
+.range { width: 100%; }
+.range-right { margin-left: 10px;}
+
+/* Range */
+.custom-range {
+    border: solid 1px #82CFD0;
+    border-radius: 8px;
+    height: 7px;
+    width: 100%;
+    outline: none;
+  }

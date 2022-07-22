@@ -1,0 +1,9 @@
+.content {
+    margin-left: 70px;
+    padding-top: 90px;
+    transition: 0.3s;
+    &.sidebarExpanded {
+      margin-left: 160px;
+    }
+  }
+  
