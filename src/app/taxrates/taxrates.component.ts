@@ -34,14 +34,14 @@ export class TaxratesComponent implements OnInit {
   setData() {
     let data = {
       currentTaxRate: 30,
-      dividentTaxRate: 6,
-      gainTaxRate: 6,
-      annualRate: 6,
-      dividenedYield: 6,
+      dividentTaxRate: 70,
+      gainTaxRate: 30,
+      annualRate: 20,
+      dividenedYield: 5,
       cashYield: 6,
-      iraBalance: 6000,
-      iraContribution: 600,
-      iraBasis: 6
+      iraBalance: 600000,
+      iraContribution: 6000,
+      iraBasis: 60
     }
 
     this.taxForm.patchValue({
@@ -58,6 +58,10 @@ export class TaxratesComponent implements OnInit {
   }
   get taxFormControl() {
     return this.taxForm.controls;
+  }
+
+  mapSliderValue(value: number) {
+    return value.toString();
   }
 
   reassignPercentage(){}

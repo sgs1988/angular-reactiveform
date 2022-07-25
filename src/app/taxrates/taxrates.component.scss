@@ -27,14 +27,35 @@
     padding-left: 2px;
 }
 .range-left { margin-right: 10px;}
-.range { width: 100%; }
+.range { width: 100%; margin-top: -16px;}
 .range-right { margin-left: 10px;}
 
 /* Range */
 .custom-range {
-    border: solid 1px #82CFD0;
-    border-radius: 8px;
-    height: 7px;
     width: 100%;
     outline: none;
   }
+
+  ::ng-deep .taxrates .mat-slider-track-fill {
+    background-color: #000000 !important;
+  }
+  
+  ::ng-deep .taxrates .mat-slider-thumb-label {
+    background-color: #000000 !important;
+  }
+  
+  ::ng-deep .taxrates .mat-slider-thumb {
+    background-color: #000000 !important;
+  }
+
+  ::ng-deep .taxrates .mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0px 0px 5px 0px !important;
+      width: auto !important;
+  }
+
+  input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; 
+}

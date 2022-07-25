@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -34,6 +35,7 @@ import { TflComponent } from './tfl/tfl.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
