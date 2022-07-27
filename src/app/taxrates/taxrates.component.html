@@ -1,104 +1,94 @@
-<div class="container-fluid taxrates">
+<div class="taxrates">
     <div class="taxrates-header-section">
-        <div class="row">
-            <div class="col-12">
-                Considering converting a clients's trading IRA to a Roth IRA?
-            </div>
-            <div class="col-12">
-                Our BETR calculator helps you make IRA conversation with your client's best interest in mind.
-            </div>
+        <div>
+            Considering converting a clients's trading IRA to a Roth IRA?
+        </div>
+        <div>
+            Our BETR calculator helps you make IRA conversation with your client's best interest in mind.
         </div>
     </div>
     <div class="taxrates-content-section">
-        <div class="row">
-            <div class="col-12 how-work">
-                How does this work?
-            </div>
-            <div class="col-6">
-                Conversions are desirable for investors who expect higher future msrginal tax rates. Add your client's
-                data belpw to discover their break-even tax rate (BETR). or the rate at which a conversion is
-                undesirable.
-            </div>
+        <div class="how-work">
+            How does this work?
+        </div>
+        <div class="conversions">
+            Conversions are desirable for investors who expect higher future msrginal tax rates. Add your client's
+            data belpw to discover their break-even tax rate (BETR). or the rate at which a conversion is
+            undesirable.
         </div>
         <!-- Tax Rate -->
         <form [formGroup]="taxForm">
             <div class="how-work-details">
-                <div class="row">
-                    <div class="col-12 pb-1">
-                        <b>Tax rate</b>
-                    </div>
+                <div>
+                    <b>Tax rate</b>
                 </div>
-                <div class="row how-work-details-section">
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                <div class="display-flex">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">CURRENT INCOME TAX RATE</div>
                                 <div *ngIf="taxFormControl['currentTaxRate'].touched && currentTaxRateInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid income tax rate</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #currentTaxRateInput
-                                        (input)="currentTaxRateSlider.value = currentTaxRateInput.value" type="number"
+                                        (input)="currentTaxRateSlider.value = currentTaxRateInput.value"
                                         name="currentTaxRate" formControlName="currentTaxRate"
                                         (ngModelChange)="modelChangeFn($event, 'currentTaxRate')">
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">1%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #currentTaxRateSlider
-                                        (input)="currentTaxRateInput.value = currentTaxRateSlider.value.toString()"
-                                        id="currentTaxRate"
-                                        (ngModelChange)="modelChangeFn(currentTaxRateSlider.value, 'currentTaxRate')"
-                                        name="currentTaxRate" formControlName="currentTaxRate" min="1" max="100">
-                                    </mat-slider>
-                                </div>
-                                <div class="range-right">100%</div>
+                        <div class="display-flex">
+                            <div class="range-left">1%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #currentTaxRateSlider thumbLabel
+                                    (input)="currentTaxRateInput.value = currentTaxRateSlider.value.toString()"
+                                    id="currentTaxRate"
+                                    (ngModelChange)="modelChangeFn(currentTaxRateSlider.value, 'currentTaxRate')"
+                                    name="currentTaxRate" formControlName="currentTaxRate" min="1" max="100">
+                                </mat-slider>
                             </div>
+                            <div class="range-right">100%</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">DIVIDENT TAX RATE</div>
                                 <div *ngIf="taxFormControl['dividentTaxRate'].touched && dividentTaxRateInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid divident tax rate</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
-                                    <input matInput #dividentTaxRateInput
+                                    <input matInput #dividentTaxRateInput thumbLabel
                                         (input)="dividentTaxRateSlider.value = dividentTaxRateInput.value" type="number"
                                         name="dividentTaxRate" formControlName="dividentTaxRate"
                                         (ngModelChange)="modelChangeFn($event, 'dividentTaxRate')">
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">0%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #dividentTaxRateSlider
-                                        (input)="dividentTaxRateInput.value = dividentTaxRateSlider.value.toString()"
-                                        id="dividentTaxRate"
-                                        (ngModelChange)="modelChangeFn(dividentTaxRateSlider.value, 'dividentTaxRate')"
-                                        name="dividentTaxRate" formControlName="dividentTaxRate" min="1" max="100">
-                                    </mat-slider>
-                                </div>
-                                <div class="range-right">100%</div>
+                        <div class="display-flex">
+                            <div class="range-left">0%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #dividentTaxRateSlider thumbLabel
+                                    (input)="dividentTaxRateInput.value = dividentTaxRateSlider.value.toString()"
+                                    id="dividentTaxRate"
+                                    (ngModelChange)="modelChangeFn(dividentTaxRateSlider.value, 'dividentTaxRate')"
+                                    name="dividentTaxRate" formControlName="dividentTaxRate" min="1" max="100">
+                                </mat-slider>
                             </div>
+                            <div class="range-right">100%</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">LONG-TERM CAPITAL GAINS TAX RATE</div>
                                 <div *ngIf="taxFormControl['gainTaxRate'].touched && gainTaxRateInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid capital gains tax rate</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #gainTaxRateInput
                                         (input)="gainTaxRateSlider.value = gainTaxRateInput.value" type="number"
@@ -107,38 +97,34 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">0%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #gainTaxRateSlider
-                                        (input)="gainTaxRateInput.value = gainTaxRateSlider.value.toString()"
-                                        id="gainTaxRate"
-                                        (ngModelChange)="modelChangeFn(gainTaxRateSlider.value, 'gainTaxRate')"
-                                        name="gainTaxRate" formControlName="gainTaxRate" min="1" max="50"></mat-slider>
-                                </div>
-                                <div class="range-right">50%</div>
+                        <div class="display-flex">
+                            <div class="range-left">0%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #gainTaxRateSlider thumbLabel
+                                    (input)="gainTaxRateInput.value = gainTaxRateSlider.value.toString()"
+                                    id="gainTaxRate"
+                                    (ngModelChange)="modelChangeFn(gainTaxRateSlider.value, 'gainTaxRate')"
+                                    name="gainTaxRate" formControlName="gainTaxRate" min="1" max="50"></mat-slider>
                             </div>
+                            <div class="range-right">50%</div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Investment returns -->
             <div class="how-work-details">
-                <div class="row">
-                    <div class="col-12 pb-1">
-                        <b>Investment returns</b>
-                    </div>
+                <div>
+                    <b>Investment returns</b>
                 </div>
-                <div class="row how-work-details-section">
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                <div class="display-flex">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">ANNUAL RETURN</div>
                                 <div *ngIf="taxFormControl['annualRate'].touched && annualRateInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid annual return</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #annualRateInput
                                         (input)="annualRateSlider.value = annualRateInput.value" type="number"
@@ -147,28 +133,25 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">1%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #annualRateSlider
-                                        (input)="annualRateInput.value = annualRateSlider.value.toString()"
-                                        id="annualRate"
-                                        (ngModelChange)="modelChangeFn(annualRateSlider.value, 'annualRate')"
-                                        name="annualRate" formControlName="annualRate" min="1" max="50"></mat-slider>
-                                </div>
-                                <div class="range-right">50%</div>
+                        <div class="display-flex">
+                            <div class="range-left">1%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #annualRateSlider thumbLabel
+                                    (input)="annualRateInput.value = annualRateSlider.value.toString()" id="annualRate"
+                                    (ngModelChange)="modelChangeFn(annualRateSlider.value, 'annualRate')"
+                                    name="annualRate" formControlName="annualRate" min="1" max="50"></mat-slider>
                             </div>
+                            <div class="range-right">50%</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">DIVIDENED YIELD</div>
                                 <div *ngIf="taxFormControl['dividenedYield'].touched && dividenedYieldInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid dividend yield</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #dividenedYieldInput
                                         (input)="dividenedYieldSlider.value = dividenedYieldInput.value" type="number"
@@ -177,29 +160,27 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">0%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #dividenedYieldSlider
-                                        (input)="dividenedYieldInput.value = dividenedYieldSlider.value.toString()"
-                                        id="dividenedYield"
-                                        (ngModelChange)="modelChangeFn(dividenedYieldSlider.value, 'dividenedYield')"
-                                        name="dividenedYield" formControlName="dividenedYield" min="0" max="10">
-                                    </mat-slider>
-                                </div>
-                                <div class="range-right">10%</div>
+                        <div class="display-flex">
+                            <div class="range-left">0%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #dividenedYieldSlider thumbLabel
+                                    (input)="dividenedYieldInput.value = dividenedYieldSlider.value.toString()"
+                                    id="dividenedYield"
+                                    (ngModelChange)="modelChangeFn(dividenedYieldSlider.value, 'dividenedYield')"
+                                    name="dividenedYield" formControlName="dividenedYield" min="0" max="10">
+                                </mat-slider>
                             </div>
+                            <div class="range-right">10%</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">CASH YIELD</div>
                                 <div *ngIf="taxFormControl['cashYield'].touched && cashYieldInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid cash yield</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #cashYieldInput
                                         (input)="cashYieldSlider.value = cashYieldInput.value" type="number"
@@ -208,37 +189,33 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">0%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #cashYieldSlider
-                                        (input)="cashYieldInput.value = cashYieldSlider.value.toString()" id="cashYield"
-                                        (ngModelChange)="modelChangeFn(cashYieldSlider.value, 'cashYield')"
-                                        name="cashYield" formControlName="cashYield" min="0" max="10"></mat-slider>
-                                </div>
-                                <div class="range-right">10%</div>
+                        <div class="display-flex">
+                            <div class="range-left">0%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #cashYieldSlider thumbLabel
+                                    (input)="cashYieldInput.value = cashYieldSlider.value.toString()" id="cashYield"
+                                    (ngModelChange)="modelChangeFn(cashYieldSlider.value, 'cashYield')" name="cashYield"
+                                    formControlName="cashYield" min="0" max="10"></mat-slider>
                             </div>
+                            <div class="range-right">10%</div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Account details -->
             <div class="how-work-details">
-                <div class="row">
-                    <div class="col-12 pb-1">
-                        <b>Account details</b>
-                    </div>
+                <div>
+                    <b>Account details</b>
                 </div>
-                <div class="row how-work-details-section">
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                <div class="display-flex">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">TRADITIONAL IRA BALANCE</div>
                                 <div *ngIf="taxFormControl['iraBalance'].touched && iraBalanceInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid IRS balance</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #iraBalanceInput
                                         (input)="iraBalanceSlider.value = iraBalanceInput.value" type="number"
@@ -247,29 +224,26 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">$1</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #iraBalanceSlider
-                                        (input)="iraBalanceInput.value = iraBalanceSlider.value.toString()"
-                                        id="iraBalance"
-                                        (ngModelChange)="modelChangeFn(iraBalanceSlider.value, 'iraBalance')"
-                                        name="iraBalance" formControlName="iraBalance" min="1" max="10000000">
-                                    </mat-slider>
-                                </div>
-                                <div class="range-right">$10000000</div>
+                        <div class="display-flex">
+                            <div class="range-left">$1</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #iraBalanceSlider thumbLabel
+                                    (input)="iraBalanceInput.value = iraBalanceSlider.value.toString()" id="iraBalance"
+                                    (ngModelChange)="modelChangeFn(iraBalanceSlider.value, 'iraBalance')"
+                                    name="iraBalance" formControlName="iraBalance" min="1" max="10000000">
+                                </mat-slider>
                             </div>
+                            <div class="range-right">$10000000</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">ANNUAL IRA CONTRIBUTION</div>
                                 <div *ngIf="taxFormControl['iraContribution'].touched && iraContributionInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid IRA contribution</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #iraContributionInput
                                         (input)="iraContributionSlider.value = iraContributionInput.value" type="number"
@@ -278,29 +252,27 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">$0</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #iraContributionSlider
-                                        (input)="iraContributionInput.value = iraContributionSlider.value.toString()"
-                                        id="iraContribution"
-                                        (ngModelChange)="modelChangeFn(iraContributionSlider.value, 'iraContribution')"
-                                        name="iraContribution" formControlName="iraContribution" min="1" max="10000">
-                                    </mat-slider>
-                                </div>
-                                <div class="range-right">$10000</div>
+                        <div class="display-flex">
+                            <div class="range-left">$0</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #iraContributionSlider thumbLabel
+                                    (input)="iraContributionInput.value = iraContributionSlider.value.toString()"
+                                    id="iraContribution"
+                                    (ngModelChange)="modelChangeFn(iraContributionSlider.value, 'iraContribution')"
+                                    name="iraContribution" formControlName="iraContribution" min="1" max="10000">
+                                </mat-slider>
                             </div>
+                            <div class="range-right">$10000</div>
                         </div>
                     </div>
-                    <div class="col-4 ps-0">
-                        <div class="row pb-2">
-                            <div class="col-9 how-work-label-section">
+                    <div class="work-details">
+                        <div class="display-flex">
+                            <div class="how-work-label-section">
                                 <div class="how-work-label">IRA BASIS</div>
                                 <div *ngIf="taxFormControl['iraBasis'].touched && iraBasisInput.value == ''"
                                     class="how-work-label-validation">Please enter a valid IRA basis</div>
                             </div>
-                            <div class="col-3">
+                            <div class="mat-form-field-input">
                                 <mat-form-field appearance="outline">
                                     <input matInput #iraBasisInput (input)="iraBasisSlider.value = iraBasisInput.value"
                                         type="number" name="iraBasis" formControlName="iraBasis"
@@ -308,17 +280,15 @@
                                 </mat-form-field>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12 d-flex">
-                                <div class="range-left">0%</div>
-                                <div class="range">
-                                    <mat-slider class="custom-range" #iraBasisSlider
-                                        (input)="iraBasisInput.value = iraBasisSlider.value.toString()" id="iraBasis"
-                                        (ngModelChange)="modelChangeFn(iraBasisSlider.value, 'iraBasis')"
-                                        name="iraBasis" formControlName="iraBasis" min="1" max="100"></mat-slider>
-                                </div>
-                                <div class="range-right">100%</div>
+                        <div class="display-flex">
+                            <div class="range-left">0%</div>
+                            <div class="range">
+                                <mat-slider class="custom-range" #iraBasisSlider thumbLabel
+                                    (input)="iraBasisInput.value = iraBasisSlider.value.toString()" id="iraBasis"
+                                    (ngModelChange)="modelChangeFn(iraBasisSlider.value, 'iraBasis')" name="iraBasis"
+                                    formControlName="iraBasis" min="1" max="100"></mat-slider>
                             </div>
+                            <div class="range-right">100%</div>
                         </div>
                     </div>
                 </div>

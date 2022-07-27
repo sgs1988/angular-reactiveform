@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder, Validators } from '@angular/forms'
+import { TaxratesService } from './taxrates.service';
 
 @Component({
   selector: 'app-taxrates',
@@ -13,7 +14,7 @@ export class TaxratesComponent implements OnInit {
 
   currentTaxRate: number = 12;
   dividentTaxRate: number = 30;
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private taxratesService: TaxratesService) {
     this.taxForm = this.fb.group({
       currentTaxRate: ['', Validators.required],
       dividentTaxRate: ['', Validators.required],
@@ -67,7 +68,20 @@ export class TaxratesComponent implements OnInit {
   reassignPercentage(){}
 
   modelChangeFn(event: any, name: string) {
-    console.log(this.taxForm.controls, '...this.taxForm.controls..');
+    let taxData = {
+      currentTaxRate: this.taxForm.controls['currentTaxRate'].value,
+      dividentTaxRate: this.taxForm.controls['dividentTaxRate'].value,
+      gainTaxRate: this.taxForm.controls['gainTaxRate'].value,
+      annualRate: this.taxForm.controls['annualRate'].value,
+      dividenedYield: this.taxForm.controls['dividenedYield'].value,
+      cashYield: this.taxForm.controls['cashYield'].value,
+      iraBalance: this.taxForm.controls['iraBalance'].value,
+      iraContribution: this.taxForm.controls['iraContribution'].value,
+      iraBasis: this.taxForm.controls['iraBasis'].value
+    };
+    this.taxratesService.getUsersForSubscription(taxData).subscribe((response: any) => {
+      console.log(response, '....response')
+    })
   }
 
 }

@@ -18,18 +18,33 @@
 }
 .custom-range-data { width: 57px; }
 .how-work-details { margin-top: 20px;}
-.how-work-details-section { font-size: 11px; }
+.display-flex { 
+  display: flex;
+  flex-direction: row;
+}
+
+.display-flex div:last-child {
+  margin-left: auto;
+}
+.mat-form-field-input { width: 70px; }
+.work-details {
+  width: 30%;
+  margin-right: 35px;
+  text-align: left;
+  line-height: 29px;
+  font-size: 11px;
+}
+
 .how-work-label-section { height: 20px; }
 .how-work-label-validation { 
     font-size: 10px;
     color: #ff0000;
-    margin-top: -5px;
+    margin-top: -15px;
     padding-left: 2px;
 }
-.range-left { margin-right: 10px;}
-.range { width: 100%; margin-top: -16px;}
+.range { width: 100%; margin-top: -10px;}
 .range-right { margin-left: 10px;}
-
+.conversions { width: 50%;}
 /* Range */
 .custom-range {
     width: 100%;
